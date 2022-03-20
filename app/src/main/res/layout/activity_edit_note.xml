@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditNote"
+    android:background="@color/background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginBottom="70dp"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/input_note_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/input_rounded_corners"
+            android:fontFamily="@font/lato_regular"
+            android:hint="Title..."
+            android:padding="10dp" />
+
+        <RadioGroup
+            android:id="@+id/note_color_selector"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="15dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato_regular"
+                android:text="Note Color"
+                android:textColor="@color/black" />
+            <RadioButton
+                android:id="@+id/input_note_blue"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/circle_selector"
+                android:backgroundTint="@color/note_blue"
+                android:backgroundTintMode="multiply"
+                android:button="@android:color/transparent"/>
+            <RadioButton
+                android:id="@+id/input_note_green"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/circle_selector"
+                android:backgroundTint="@color/note_green"
+                android:backgroundTintMode="multiply"
+                android:button="@android:color/transparent"/>
+            <RadioButton
+                android:id="@+id/input_note_yellow"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/circle_selector"
+                android:backgroundTint="@color/note_yellow"
+                android:backgroundTintMode="multiply"
+                android:button="@android:color/transparent"/>
+            <RadioButton
+                android:id="@+id/input_note_red"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/circle_selector"
+                android:backgroundTint="@color/note_red"
+                android:backgroundTintMode="multiply"
+                android:button="@android:color/transparent"/>
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/input_note_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/input_rounded_corners"
+            android:fontFamily="@font/lato_regular"
+            android:gravity="start"
+            android:hint="Note content..."
+            android:minHeight="300sp"
+            android:padding="10dp" />
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/input_note_confirm_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/ic_baseline_done_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
