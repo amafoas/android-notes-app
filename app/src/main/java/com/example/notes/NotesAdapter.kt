@@ -6,11 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.cardview.widget.CardView
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.notes.data.Note
 
-// TODO: ADD NOTE COLOR TO BACKGROUND
 class NotesAdapter (private val noteList: List<Note>) : RecyclerView.Adapter<NotesAdapter.ViewHolder>() {
   // References to the view
   class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

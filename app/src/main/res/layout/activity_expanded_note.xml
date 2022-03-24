@@ -30,7 +30,7 @@
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="24dp"
         android:fontFamily="@font/lato_regular"
-        android:hint="Note title here"
+        android:hint="Note content here"
         android:minHeight="300dp"
         android:text="@null"
         android:textColor="@color/black"
@@ -40,15 +40,88 @@
         app:layout_constraintTop_toBottomOf="@+id/expanded_note_title" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/edit_note_fab"
+        android:id="@+id/expanded_note_menu_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
-        android:src="@drawable/ic_baseline_edit_24"
+        android:src="@drawable/ic_baseline_expand_less_24"
+        android:onClick="expandMenu"
         app:fabSize="mini"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/edit_note_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8sp"
+        android:src="@drawable/ic_baseline_edit_24"
+        android:visibility="invisible"
+        android:onClick="goToEditNote"
+        app:fabSize="mini"
+        app:layout_constraintBottom_toTopOf="@+id/delete_note_fab"
+        app:layout_constraintEnd_toEndOf="@+id/delete_note_fab"
+        app:layout_constraintStart_toStartOf="@+id/delete_note_fab" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/delete_note_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8sp"
+        android:src="@drawable/ic_baseline_delete_24"
+        android:visibility="invisible"
+        android:onClick="showDeleteModal"
+        app:fabSize="mini"
+        app:layout_constraintBottom_toTopOf="@+id/expanded_note_menu_fab"
+        app:layout_constraintEnd_toEndOf="@+id/expanded_note_menu_fab"
+        app:layout_constraintStart_toStartOf="@+id/expanded_note_menu_fab" />
+
+    <LinearLayout
+        android:id="@+id/delete_modal"
+        android:visibility="gone"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@color/modal_background"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_marginBottom="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lato_regular"
+            android:text="@string/confirm_note_delete"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="confirm"
+                android:backgroundTint="@color/modal_btn"
+                android:onClick="confirmDeletion"
+                />
+            <Button
+                android:layout_marginStart="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="cancel"
+                android:backgroundTint="@color/modal_btn"
+                android:onClick="hideDeleteModal"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
