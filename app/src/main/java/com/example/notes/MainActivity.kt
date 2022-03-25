@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.RecyclerView
-import androidx.room.Room
 import com.example.notes.data.Note
 import com.example.notes.data.NoteDao
 import com.example.notes.data.NotesDB
@@ -14,7 +13,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
-  lateinit var db: NotesDB
   lateinit var noteDao: NoteDao
   lateinit var adapter: RecyclerView.Adapter<*>
   lateinit var noteList: MutableList<Note>
@@ -23,12 +21,7 @@ class MainActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
 
-    /// DATABASE INITIALIZATION
-    db = Room.databaseBuilder(
-            applicationContext,
-            NotesDB::class.java, "notes-database"
-          ).build()
-    noteDao = db.noteDao()
+    noteDao = NotesDB.getDatabase(this).noteDao()
 
     val notesRecyclerView = findViewById<RecyclerView>(R.id.notes_recycle_view)
     noteList = mutableListOf()

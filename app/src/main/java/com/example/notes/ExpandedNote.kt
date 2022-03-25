@@ -9,7 +9,6 @@ import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts.*
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
-import androidx.room.Room
 import com.example.notes.data.Note
 import com.example.notes.data.NotesDB
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -82,11 +81,7 @@ class ExpandedNote : AppCompatActivity() {
 
   // called in xml by delete_note_fab
   fun confirmDeletion(view: View){
-    val db = Room.databaseBuilder(
-      applicationContext,
-      NotesDB::class.java, "notes-database"
-    ).build()
-    val noteDao = db.noteDao()
+    val noteDao = NotesDB.getDatabase(this).noteDao()
 
     val note = Note("",0,"")
     note.id = id

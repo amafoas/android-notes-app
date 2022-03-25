@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.EditText
 import android.widget.RadioGroup
-import androidx.room.Room
 import com.example.notes.data.Note
 import com.example.notes.data.NoteDao
 import com.example.notes.data.NotesDB
@@ -15,18 +14,13 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class EditNote : AppCompatActivity() {
-  lateinit var db: NotesDB
   lateinit var noteDao: NoteDao
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_edit_note)
 
-    db = Room.databaseBuilder(
-      applicationContext,
-      NotesDB::class.java, "notes-database"
-    ).build()
-    noteDao = db.noteDao()
+    noteDao = NotesDB.getDatabase(this).noteDao()
 
     val inputTitle = findViewById<EditText>(R.id.input_note_title)
     val inputContent = findViewById<EditText>(R.id.input_note_content)
