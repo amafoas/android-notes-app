@@ -25,7 +25,8 @@
             android:layout_height="wrap_content"
             android:background="@drawable/input_rounded_corners"
             android:fontFamily="@font/lato_regular"
-            android:hint="Title..."
+            android:hint="@string/note_title_hint"
+            android:textColor="@color/black"
             android:padding="10dp" />
 
         <RadioGroup
@@ -38,7 +39,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lato_regular"
-                android:text="Note Color"
+                android:text="@string/note_color_label"
                 android:textColor="@color/black" />
             <RadioButton
                 android:id="@+id/input_note_blue"
@@ -85,7 +86,8 @@
             android:background="@drawable/input_rounded_corners"
             android:fontFamily="@font/lato_regular"
             android:gravity="start"
-            android:hint="Note content..."
+            android:textColor="@color/black"
+            android:hint="@string/note_content_hint"
             android:minHeight="300sp"
             android:padding="10dp" />
     </LinearLayout>
@@ -97,6 +99,8 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         android:src="@drawable/ic_baseline_done_24"
+        app:backgroundTint="@color/fab_bg"
+        app:tint="@color/fab_icon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

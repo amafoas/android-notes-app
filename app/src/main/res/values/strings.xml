@@ -1,4 +1,19 @@
 <resources>
     <string name="app_name">Notes</string>
-    <string name="confirm_note_delete">Are you sure you want to delete this note ?</string>
+
+    <!--  activity_expanded_note  -->
+    <string name="note_delete_modal_txt">Are you sure you want to delete this note ?</string>
+    <string name="note_delete_btn_confirm">confirm</string>
+    <string name="note_delete_btn_cancel">cancel</string>
+
+    <!--  activity_edit_note  -->
+    <string name="note_content_hint">Note content...</string>
+    <string name="note_title_hint">Title...</string>
+    <string name="note_color_label">Note Color</string>
+
+    <!--  activity_expanded_note  -->
+    <string name="expanded_note_title_hint">Note title here</string>
+    <string name="expanded_note_content_hint">Note content here</string>
+
+    <!--  others  -->
 </resources>

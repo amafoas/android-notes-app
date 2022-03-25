@@ -32,7 +32,11 @@ class NotesAdapter (private val noteList: List<Note>) : RecyclerView.Adapter<Not
     // Get element from your dataset at this position and replace the
     // contents of the view with that element
     viewHolder.title.text = currNote.title
-    viewHolder.content.text = currNote.content
+
+    var miniContent = currNote.content
+    if (miniContent.length > 250) miniContent = miniContent.take(250) + "..."
+    viewHolder.content.text = miniContent
+
     viewHolder.card.setCardBackgroundColor(currNote.color)
 
     viewHolder.card.setOnClickListener {

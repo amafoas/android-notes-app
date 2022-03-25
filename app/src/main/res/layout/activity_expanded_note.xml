@@ -15,10 +15,10 @@
         android:layout_marginHorizontal="15dp"
         android:layout_marginTop="32dp"
         android:fontFamily="@font/lato_regular"
-        android:hint="Note title here"
+        android:hint="@string/expanded_note_title_hint"
         android:text="@null"
         android:textColor="@color/black"
-        android:textSize="30sp"
+        android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -30,13 +30,13 @@
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="24dp"
         android:fontFamily="@font/lato_regular"
-        android:hint="Note content here"
+        android:hint="@string/expanded_note_content_hint"
         android:minHeight="300dp"
         android:text="@null"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="@+id/expanded_note_title"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/expanded_note_title"
         app:layout_constraintTop_toBottomOf="@+id/expanded_note_title" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -46,6 +46,8 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         android:src="@drawable/ic_baseline_expand_less_24"
+        app:backgroundTint="@color/fab_bg"
+        app:tint="@color/fab_icon"
         android:onClick="expandMenu"
         app:fabSize="mini"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -57,6 +59,8 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8sp"
         android:src="@drawable/ic_baseline_edit_24"
+        app:backgroundTint="@color/fab_bg"
+        app:tint="@color/fab_icon"
         android:visibility="invisible"
         android:onClick="goToEditNote"
         app:fabSize="mini"
@@ -70,6 +74,8 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8sp"
         android:src="@drawable/ic_baseline_delete_24"
+        app:backgroundTint="@color/fab_bg"
+        app:tint="@color/fab_icon"
         android:visibility="invisible"
         android:onClick="showDeleteModal"
         app:fabSize="mini"
@@ -82,10 +88,11 @@
         android:visibility="gone"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:background="@color/modal_background"
+        android:background="@drawable/modal_bg_rounded_corners"
         android:orientation="vertical"
         android:gravity="center"
-        android:padding="30dp"
+        android:paddingHorizontal="30dp"
+        android:paddingVertical="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -96,11 +103,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/lato_regular"
-            android:text="@string/confirm_note_delete"
+            android:text="@string/note_delete_modal_txt"
             android:textAlignment="center"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="20sp" />
-
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -108,20 +114,16 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="confirm"
+                android:text="@string/note_delete_btn_confirm"
                 android:backgroundTint="@color/modal_btn"
-                android:onClick="confirmDeletion"
-                />
+                android:onClick="confirmDeletion" />
             <Button
                 android:layout_marginStart="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="cancel"
+                android:text="@string/note_delete_btn_cancel"
                 android:backgroundTint="@color/modal_btn"
-                android:onClick="hideDeleteModal"
-                />
+                android:onClick="hideDeleteModal" />
         </LinearLayout>
-
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
