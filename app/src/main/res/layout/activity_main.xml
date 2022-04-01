@@ -7,20 +7,89 @@
     tools:context=".MainActivity"
     android:background="@color/background">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/notes_recycle_view"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/note_item"
-        app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
-        app:spanCount="2"
-        android:layout_marginTop="7dp"
-        android:layout_marginHorizontal="7dp"
-        android:layout_marginBottom="70dp"
+        android:layout_marginHorizontal="3dp"
+        android:layout_marginVertical="10dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioGroup
+            android:id="@+id/note_color_filter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato_regular"
+                android:text="@string/filter_label"
+                android:textColor="@color/black" />
+
+            <RadioButton
+                android:id="@+id/no_filter"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/ic_outline_cancel_24"
+                android:button="@android:color/transparent" />
+
+            <RadioButton
+                android:id="@+id/filter_blue"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/circle_selector"
+                android:backgroundTint="@color/note_blue"
+                android:backgroundTintMode="multiply"
+                android:button="@android:color/transparent" />
+
+            <RadioButton
+                android:id="@+id/filter_green"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/circle_selector"
+                android:backgroundTint="@color/note_green"
+                android:backgroundTintMode="multiply"
+                android:button="@android:color/transparent" />
+
+            <RadioButton
+                android:id="@+id/filter_yellow"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/circle_selector"
+                android:backgroundTint="@color/note_yellow"
+                android:backgroundTintMode="multiply"
+                android:button="@android:color/transparent" />
+
+            <RadioButton
+                android:id="@+id/filter_red"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/circle_selector"
+                android:backgroundTint="@color/note_red"
+                android:backgroundTintMode="multiply"
+                android:button="@android:color/transparent" />
+        </RadioGroup>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/notes_recycle_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+            app:spanCount="2"
+            tools:listitem="@layout/note_item" />
+    </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/new_note_fab"

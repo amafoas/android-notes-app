@@ -14,6 +14,8 @@
     <!--  activity_expanded_note  -->
     <string name="expanded_note_title_hint">Note title here</string>
     <string name="expanded_note_content_hint">Note content here</string>
+    <string name="filter_label">Filter</string>
 
     <!--  others  -->
+    <string name="toast_note_is_empty">you must complete both fields</string>
 </resources>

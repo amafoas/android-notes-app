@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.EditText
 import android.widget.RadioGroup
+import android.widget.Toast
 import com.example.notes.data.Note
 import com.example.notes.data.NoteDao
 import com.example.notes.data.NotesDB
@@ -36,10 +37,15 @@ class EditNote : AppCompatActivity() {
     submitBtn.setOnClickListener {
       val title = inputTitle.text.toString().trim()
       val content = inputContent.text.toString().trim()
-      val color = getColorFromSelector()
-      val note = Note(title, color, content)
-      if (isEdition) note.id = intent.getIntExtra("id", note.id)
-      sendToDatabase(note, isEdition)
+
+      if (isEmptyOrBlank(title) or isEmptyOrBlank(content)) {
+        Toast.makeText(this, getString(R.string.toast_note_is_empty), Toast.LENGTH_SHORT).show()
+      } else {
+        val color = getColorFromSelector()
+        val note = Note(title, color, content)
+        if (isEdition) note.id = intent.getIntExtra("id", note.id)
+        sendToDatabase(note, isEdition)
+      }
     }
   }
 
@@ -79,5 +85,9 @@ class EditNote : AppCompatActivity() {
       R.id.input_note_red-> getColor(R.color.note_red)
       else -> getColor(R.color.note_blue)
     }
+  }
+
+  private fun isEmptyOrBlank(str: String): Boolean {
+    return str.isEmpty() or str.isBlank()
   }
 }
